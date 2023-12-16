@@ -9,10 +9,10 @@
  */
 void swap_node(listint_t *node1, listint_t *node2)
 {
-	if (node2->next)
-		node2->next->prev = node1;
 	if (node1->prev)
 		node1->prev->next = node2;
+	if (node2->next)
+		node2->next->prev = node1;
 	node1->next = node2->next;
 	node2->prev = node1->prev;
 	node1->prev = node2;
@@ -42,7 +42,7 @@ void insertion_sort_list(listint_t **list)
 			if (t->prev->n > t->n)
 			{
 				swap_node(t->prev, t);
-				if (t == NULL)
+				if (!t->prev)
 					*list = t;
 				print_list((const listint_t *)*list);
 			}
