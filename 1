@@ -5,7 +5,7 @@
  * @array: array
  * @a: element1
  * @b: element2
- */
+ * */
 void swap(int *array, ssize_t a, ssize_t b)
 {
 	int tmp;
@@ -66,10 +66,9 @@ void quicksort(int *array, ssize_t first, ssize_t last, int size)
 		quicksort(array, p + 1, last, size);
 	}
 }
-/**
- * quick_sort - prepare the terrain to quicksort algorithm
- * @array: array
- * @size: size of array
+/*quick_sort - prepare the terrain to quicksort algorithm
+ *@array: array
+ *@size: size of array
  */
 void quick_sort(int *array, size_t size)
 {
