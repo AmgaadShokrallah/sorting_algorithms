@@ -1,11 +1,11 @@
 #include "sort.h"
 
 /**
-*swap - swap 2 elements into an array
-*@array: array
-*@a: element1
-*@b: element2
-*/
+ * swap - swap 2 elements into an array
+ * @array: array
+ * @a: element1
+ * @b: element2
+ */
 void swap(int *array, ssize_t a, ssize_t b)
 {
 	int tmp;
@@ -15,12 +15,12 @@ void swap(int *array, ssize_t a, ssize_t b)
 	array[b] = tmp;
 }
 /**
- *lomuto_partition - lomuto partition sorting scheme implementation
- *@array: array
- *@low: first array element
- *@high: last array element
- *@size: size of array
- *Return: return the position of the last element sorted
+ * lomuto_partition - lomuto partition sorting scheme implementation
+ * @array: array
+ * @low: first array element
+ * @high: last array element
+ * @size: size of array
+ * Return: return the position of the last element sorted
  */
 int lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size)
 {
@@ -47,26 +47,29 @@ int lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size)
 	return (i);
 }
 /**
- *quicksort - qucksort algorithm implementation
- *@array: array
- *@low: first array element
- *@high: last array element
- *@size: array of size
+ * quicksort - qucksort algorithm implementation
+ * @array: array
+ * @low: first array element
+ * @high: last array element
+ * @size: array of size
  */
 void quicksort(int *array, ssize_t low, ssize_t high, int size)
 {
+
+	ssize_t position = 0;
+
 	if (low < high)
 	{
-		size_t position = lomuto_partition(array, size, low, high);
+		position = lomuto_partition(array, size, low, high);
 
-		quicksort(array, size, low, position - 1);
-		quicksort(array, size, position + 1, high);
+		quicksort(array, low, position - 1, size);
+		quicksort(array, position + 1, high, size);
 	}
 }
 /**
- *quick_sort - prepare the terrain to quicksort algorithm
- *@array: array
- *@size: size of array
+ * quick_sort - prepare the terrain to quicksort algorithm
+ * @array: array
+ * @size: size of array
  */
 void quick_sort(int *array, size_t size)
 {
